@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Seniorbook</title>
+    <link rel="stylesheet" href="css/news-feed.css">
+    <link rel="stylesheet" href="css/header.css">
+
+  </head>
+  <body>
+    <!--Header Contents-->
+    <div class="header">
+      <a class="header-title" href="http://127.0.0.1:5500/news-feed.html">
+        Seniorbook
+      </a>
+
+      <div class="header-middle-section">
+        <img class="search-icon" src="icons/search.svg">
+        <input class="search-input" type="text" placeholder="Search Seniorbook">
+      </div>
+
+      <div class="header-right-section">
+        <a href="http://127.0.0.1:5500/profile.html">
+          <img class="profile-picture-icon" src="/profile-pictures/dionela.jpg" />
+        </a>
+      </div>
+    </div>
+
+    <!--Left Navigation Buttons-->
+    <nav class="left-panel">
+      <div class="left-panel-nav">
+        <img class="profile-picture-icon" src="/profile-pictures/dionela.jpg" />
+        <div class="left-panel-nav">
+          dionela
+        </div>
+      </div>
+
+      <div class="left-panel-nav">
+        <img class="panel-home-icon" src="/icons/home.svg">
+        <a href="http://127.0.0.1:5500/news-feed.html" class="panel-home-text">
+            Home
+        </a>
+      </div>
+
+      <div class="left-panel-nav">
+        <img class="panel-home-icon" src="/icons/bell.svg">
+        <div class="panel-home-text">
+          Notifications
+        </div>
+      </div>
+
+      <div class="left-panel-nav">
+        <img class="panel-home-icon" src="/icons/settings.svg">
+        <div class="panel-home-text">
+          Settings
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Uploading Files
+    <div class="upload-container">
+      
+    </div>
+    -->
+
+    <!--News Feed Area-->
+    <main class="news-feed">
+      <!--Posting Container
+      <textarea id="postContent" placeholder="Write something..."></textarea>  
+      <button onclick="postMessage()">Post</button>  
+      <div id="posts"></div>
+      -->
+
+      <div class="posting-container">
+        <img class="profile-picture-icon" src="profile-pictures/dionela.jpg">
+        <input class="posting-input" type="text" placeholder="What's on your mind Dionela?">
+        <label for="fileInput" class="upload-button">Choose File</label>
+        <input type="file" id="fileInput" accept="image/*" multiple onchange="previewFile()">
+        <div id="preview"></div>
+      </div>
+ 
+      
+      <div class="posts">
+        <!-- Dito ige-generate 'yung HTML na nasa
+         posts.js na nasa variable na postHTML'-->
+      </div>
+
+    </main>
+
+  </body>
+  
+  <script type="module" src="scripts/news-feed.js"></script>
+  
+</html>
