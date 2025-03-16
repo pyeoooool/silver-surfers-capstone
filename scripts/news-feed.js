@@ -5,8 +5,7 @@ let postHTML = '';
 
 post.forEach((post) => {
   postHTML += `
-<!--Start of Main Post Division-->
-      <div class="feed-post js-feed-post">
+      <div class="feed-post js-feed-post-${post.id}">
         <div class="post-header">
           <img class="profile-picture-icon" src="${post.pfp}">
           <div class="post-detail">
@@ -14,86 +13,71 @@ post.forEach((post) => {
               ${post.whoPosted}
             </div>
             <div class="js-place-time">
-             ${post.age} years old, ${post.location}
-          
+              ${post.location}, ${post.age} years old
             </div>
-          </div>  
+          </div>
+          <div class="bookmark-container">
+            <img class="bookmark-icon" src="icons/circle-bookmark.svg">
+          </div>
         </div>
 
         <div class="image-container">
-          <img class="post-image" src="${post.video}">
+          <img class="post-image" src="${post.image}">
         </div>
 
-        <div class="react-buttons-container">
-          <button class="heart-button" onclick="toggleHeartButton();">
-            <img class="heart-icon" src="icons/heart.svg">
-          </button>
+        <div class="reader-count-container">
+          <img class="reader-count-icon" src="icons/sunglasses-alt.svg">
+          <span class="reader-count">
+              8,965 readers
+          </span>
         </div>
 
         <div class="liked-by-container">
           <div class="liked-by-images">
-            <img class="image-icon" src="/profile-pictures/dionela.jpg">
-            <img class="image-icon" src="/profile-pictures/dionela.jpg">
-            <img class="image-icon" src="/profile-pictures/dionela.jpg">
+            <img class="image-icon" src="/profile-pictures/random-woman-1.jpg">
+            <img class="image-icon" src="/profile-pictures/random-woman-1.jpg">
+            <img class="image-icon" src="/profile-pictures/random-woman-1.jpg">
           </div>
         
           <div class="liked-by-texts">
-            Liked by
-          </div>
-          <div class="self-name">
-            dionela
-          </div>
-          <div class="liked-by-texts">
+            Bookmarked by
+              <span class="self-name">
+                dionela
+              </span>
             and
-          </div>
-          <div class="js-react-count">
-            ${post.likes} others
+              <span class="like-count">
+                ${post.likeCount} others
+              </span>
           </div>
         </div>
 
         <div class="post-caption-container">
-          <div class="self-name">
-            dionela
-          </div>
-          <div>
+          <span class="self-name">
+            ${post.location}
+          </span>
+          <span class="caption">
             ${post.caption}
-          </div>
+          </span>
         </div>
 
         <div class="show-comments-container">
-          <div>
-            View all
-          </div>
-          <div class="js-comment-list">
-            154 comments
-          </div>
+          View all
+            <span class="js-comment-list">
+              ${post.commentCount} reviews
+            </span>
         </div>
 
-        <!--Comment List Container-->
-        <div class="comment-list-container">
-          <ul id="commentList" class="comment-list"></ul>
-        </div>
-
-        <!--Comment Box Container-->
-        <div class="comment-box-container">
-          <input type="text" id="commentInput" class="comment-box" placeholder="Write a comment">
-        </div>
-
-        <!--Comment Button Container-->
-        <div class="comment-button-container">
+        <div class="comment-container">
+          <input type="text" id="commentInput" class="comment-box" placeholder="Write a review">
           <button class="comment-button" onclick="addComment()">
-            <img class="send-icon" src="/icons/paper-plane-top.svg" alt="">
+            <img class="send-icon" src="/icons/paper-plane-top.svg">
           </button>
         </div>
       </div>
-      
-      <!--End of Main Post Division--> 
 `;
-
-
 });
 
-document.querySelector('.posts')
+document.querySelector('.news-feed-grid')
   .innerHTML = postHTML;
 
 
@@ -112,18 +96,22 @@ function addComment() {
   }
 }
 
+/* For the heart button
+document.querySelector('.js-heart-button-${postId}')
+  .forEach((post) => {
+    post.addEventListener('click', () => {
+      let heartButtonElement = document.querySelector('.heart-button');
 
-function toggleHeartButton() {
-  let heartButtonElement = document.querySelector('.heart-button');
-
-  if (!heartButtonElement.classList.contains('is-toggled')) {
-    heartButtonElement.classList.add('is-toggled');
-    heartButtonElement.innerHTML = `<img class="heart-icon" src="icons/heart-filled.svg">`;
-  } else {
-    heartButtonElement.classList.remove('is-toggled');
-    heartButtonElement.innerHTML = `<img class="heart-icon" src="icons/heart.svg">`;
-  }
-}
+      if (!heartButtonElement.classList.contains('is-toggled')) {
+        heartButtonElement.classList.add('is-toggled');
+        heartButtonElement.innerHTML = `<img class="heart-icon" src="icons/heart-filled.svg">`;
+      } else {
+        heartButtonElement.classList.remove('is-toggled');
+        heartButtonElement.innerHTML = `<img class="heart-icon" src="icons/heart.svg">`;
+      }
+    });
+  })
+*/
 
 function openFileExplorer() {
   const fileInput = document.createElement("input");

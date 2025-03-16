@@ -5,5 +5,5 @@ export const user = [{
   username: 'dionela_1',
   location: 'Philippines',
   age: 0,
-  pff: 'url/images/bla.jpg'
+  pfp: 'url/images/bla.jpg'
 }];
