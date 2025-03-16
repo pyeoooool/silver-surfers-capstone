@@ -1,15 +1,33 @@
 .news-feed-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
+  column-count: 3;
+  /* Number of masonry columns */
+  column-gap: 20px;
+  /* Space between columns */
+}
+
+.news-feed-grid>div {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 10px;
+  /* Space between items in each column */
+  border: 1px solid #ccc;
+  /* Optional: Border styling */
+  border-radius: 10px;
+  /* Optional: Rounded corners */
+  display: inline-block;
+  /* Ensures items behave like bricks */
+  width: 100%;
+  /* Ensures items fit inside the column */
+  box-sizing: border-box;
+  /* Includes padding in width/height calculations */
 }
 
 .feed-post {
   height: auto;
   background-color: white;
   border-radius: 20px;
-  margin-top: 20px;
-  padding: 15px 15px;
+  margin-top: 10px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -59,7 +77,6 @@
   background-color: rgb(230, 230, 230);
   border-radius: 10px;
   overflow: clip;
-  flex: 1;
 }
 
 .post-image {
@@ -67,8 +84,8 @@
 }
 
 .post-caption-container {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 10px 0px;
+
 }
 
 
@@ -86,8 +103,7 @@
 .liked-by-container {
   display: flex;
   align-items: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 10px 0px;
 
 }
 
@@ -142,9 +158,10 @@
   background-color: rgb(250, 250, 250);
   display: flex;
   align-items: center;
-  padding: 5px;
-  border-radius: 15px;
+  padding: 10px;
+  border-radius: 10px;
   margin-top: 10px;
+  height: 40px;
 }
 
 .comment-box:focus {
@@ -168,6 +185,7 @@
   font-size: 16px;
   box-sizing: border-box;
   border: none;
+  padding: 10px;
 }
 
 .comment-list {
@@ -211,19 +229,19 @@
 
 @media (min-width: 400px) and (max-width: 1100px) {
   .news-feed-grid {
-    grid-template-columns: 1fr;
+    column-count: 1;
   }
 }
 
 @media (min-width: 1100px) and (max-width: 1400px) {
   .news-feed-grid {
-    grid-template-columns: 1fr 1fr;
+    column-count: 2;
   }
 }
 
 @media (min-width: 1400px) and (max-width: 1920px) {
   .news-feed-grid {
-    grid-template-columns: 1fr 1fr 1fr;
+    column-count: 3;
   }
 }
 
