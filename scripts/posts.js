@@ -79,31 +79,3 @@ export const post = [{
   timePosted: '12:43 PM',
   datePosted: 'March 13, 2025'
 }];
-
-/*
-function previewFile() {
-  const fileInput = document.getElementById('fileInput');
-  const preview = document.getElementById('preview');
-
-  const file = fileInput.files[0];
-  if (!file) return;
-
-  const reader = new FileReader();
-  reader.onload = function (e) {
-      preview.innerHTML = '';
-
-      if (file.type.startsWith('image/')) {
-          const img = document.createElement('img');
-          img.src = e.target.result;
-          preview.appendChild(img);
-      } else if (file.type.startsWith('video/')) {
-          const video = document.createElement('video');
-          video.src = e.target.result;
-          video.controls = true;
-          preview.appendChild(video);
-      }
-  };
-
-  reader.readAsDataURL(file);
-}
-*/

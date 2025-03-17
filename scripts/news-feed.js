@@ -96,31 +96,67 @@ function addComment() {
   }
 }
 
-/* For the heart button
-document.querySelector('.js-heart-button-${postId}')
-  .forEach((post) => {
-    post.addEventListener('click', () => {
-      let heartButtonElement = document.querySelector('.heart-button');
+document.querySelector('.header-settings-icon')
+  .addEventListener('click', () => {
+    window.location.href = 'settings.html';
+  });
 
-      if (!heartButtonElement.classList.contains('is-toggled')) {
-        heartButtonElement.classList.add('is-toggled');
-        heartButtonElement.innerHTML = `<img class="heart-icon" src="icons/heart-filled.svg">`;
-      } else {
-        heartButtonElement.classList.remove('is-toggled');
-        heartButtonElement.innerHTML = `<img class="heart-icon" src="icons/heart.svg">`;
-      }
-    });
-  })
-*/
+const openModal = document.getElementById('open-modal');
+const closeModal = document.getElementById('close-modal');
+const modalContainer = document.getElementById('modal-container');
 
-function openFileExplorer() {
-  const fileInput = document.createElement("input");
-  fileInput.type = "file";
-  fileInput.style.display = "none"; // Optional: to keep it invisible
-  fileInput.onchange = (event) => {
-    // Handle the selected file(s) here
-    console.log(event.target.files);
+
+openModal.addEventListener('click', () => {
+  modalContainer.style.display = 'flex';
+})
+
+closeModal.addEventListener('click', () => {
+  modalContainer.style.display = 'none';
+})
+
+function postMedia() {
+  const mediaUpload = document.getElementById("mediaUpload"); // File input
+  const captionInput = document.getElementById("captionInput"); // Caption textarea
+  const feed = document.getElementById("feed"); // Feed container
+
+  if (mediaUpload.files.length === 0) {
+    alert("Please select an image or video before posting.");
+    return;
+  }
+
+  const file = mediaUpload.files[0]; // Get the first file
+  const reader = new FileReader();
+
+  reader.onload = function (event) {
+    const postDiv = document.createElement("div"); // Create post container
+    postDiv.classList.add("post");
+
+    let mediaElement;
+
+    if (file.type.startsWith("image/")) {
+      mediaElement = document.createElement("img");
+      mediaElement.src = event.target.result; // Set image source
+    } else if (file.type.startsWith("video/")) {
+      mediaElement = document.createElement("video");
+      mediaElement.src = event.target.result; // Set video source
+      mediaElement.controls = true; // Enable video controls (play, pause, etc.)
+    } else {
+      alert("Only image and video files are allowed.");
+      return;
+    }
+
+    const captionElement = document.createElement("p");
+    captionElement.classList.add("caption");
+    captionElement.textContent = captionInput.value; // Set caption text
+
+    postDiv.appendChild(mediaElement);
+    postDiv.appendChild(captionElement);
+    feed.prepend(postDiv); // Add the new post to the top of the feed
+
+    // Reset input fields
+    mediaUpload.value = "";
+    captionInput.value = "";
   };
-  fileInput.click();
-}
 
+  reader.readAsDataURL(file);
+}
