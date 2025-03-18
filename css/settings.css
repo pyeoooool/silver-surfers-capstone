@@ -9,7 +9,7 @@
 }
 
 /* Form Inputs */
-form {
+.settings-container form {
     display: flex;
     flex-direction: column;
 }
@@ -28,7 +28,7 @@ form {
 }
 
 /* Input Fields */
-input {
+.settings-container input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -36,13 +36,13 @@ input {
 }
 
 /* Readonly Fields */
-input[readonly] {
+.settings-container input[readonly] {
     background-color: #e9ecef;
     cursor: not-allowed;
 }
 
 /* Button */
-button {
+.save-button {
     background-color: #1877f2;
     color: white;
     padding: 10px;
@@ -53,6 +53,6 @@ button {
     width: 100%;
 }
 
-button:hover {
+.save-button:hover {
     background-color: #145dbf;
 }

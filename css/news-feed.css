@@ -1,3 +1,12 @@
+.news-feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
 .news-feed-grid {
   column-count: 3;
   /* Number of masonry columns */
@@ -244,30 +253,28 @@
   }
 }
 
-/* Modal Styling */
-.modal {
+.create-diary-modal-container {
   display: none;
-  /* Hidden by default */
   position: fixed;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  /* Semi-transparent black background */
-  justify-content: center;
-  align-items: center;
   z-index: 1000;
-  /* Ensures it appears above other content */
 }
 
-.modal-content {
+.create-diary-modal-content {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
   background-color: white;
   padding: 20px;
   border-radius: 10px;
+
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 400px;
-  text-align: center;
   animation: popIn 0.3s ease-out;
 }
 
@@ -281,4 +288,106 @@
     transform: scale(1);
     opacity: 1;
   }
+}
+
+.add-image-icon,
+.add-video-icon {
+  height: 30px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.create-diary-modal-content input {
+  width: 100%;
+  height: 50px;
+
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 20px;
+
+  box-sizing: border-box;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.create-diary-modal-content input:focus {
+  border-color: #0078D4;
+  box-shadow: 0 0 5px rgba(0, 120, 212, 0.5);
+  outline: none;
+}
+
+.title-block {
+  font-weight: 700;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.close-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.back-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 38px;
+}
+
+.add-button-container {
+  margin-top: 5px;
+  display: flex;
+  justify-content: left;
+
+}
+
+.create-button-container {
+  display: flex;
+  justify-content: right;
+}
+
+.create-button {
+  display: inline-block;
+  padding: 12px 20px;
+  /* Adjust size */
+  color: white;
+  /* Text color */
+  background-color: #0078D4;
+  /* Primary blue */
+  border: none;
+  border-radius: 5px;
+  /* Smooth corners */
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Soft shadow */
+}
+
+.create-button:hover {
+  background-color: #005A9E;
+  /* Darker blue on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  /* Deeper shadow */
+}
+
+.create-button:focus {
+  outline: none;
+  /* Removes default focus outline */
+  box-shadow: 0 0 8px rgba(0, 120, 212, 0.8);
+  /* Focus glow */
+}
+
+.create-button:active {
+  background-color: #004578;
+  /* Even darker blue on click */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  /* Pressed button effect */
+  transform: scale(0.98);
+  /* Subtle press effect */
 }
