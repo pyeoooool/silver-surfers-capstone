@@ -1,18 +1,18 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  height: 3000px;
-  background-color: rgb(240, 240, 240);
+.profile-page {
+  margin-top: 60px;
 }
 
 .cover-photo-container {
   background-color: gray;
   height: 300px;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .cover-photo {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .profile-content-container {

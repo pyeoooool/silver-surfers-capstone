@@ -1,19 +1,26 @@
-import { generateDiariesHTML, generateSettingsHTML } from './render-html.js';
+import { generateDiariesHTML, generateSettingsHTML, generateProfileHTML } from './render-html.js';
 
 document.querySelector('.news-feed')
   .innerHTML = generateDiariesHTML();
 
-const homeIcon = document.querySelector('.js-home-icon');
-homeIcon.addEventListener('click', () => {
-  const diaryFeed = generateDiariesHTML();
-  document.querySelector('.news-feed').innerHTML = diaryFeed;
-});
+document.querySelector('.js-home-icon')
+  .addEventListener('click', () => {
+    const diaryFeed = generateDiariesHTML();
+    document.querySelector('.news-feed').innerHTML = diaryFeed;
+  });
 
-const settingsIcon = document.querySelector('.js-settings-icon');
-settingsIcon.addEventListener('click', () => {
-  const settingsFeed = generateSettingsHTML();
-  document.querySelector('.news-feed').innerHTML = settingsFeed;
-});
+document.querySelector('.js-settings-icon')
+  .addEventListener('click', () => {
+    const settingsFeed = generateSettingsHTML();
+    document.querySelector('.news-feed').innerHTML = settingsFeed;
+  });
+
+
+document.querySelector('.js-profile-icon')
+  .addEventListener('click', () => {
+    const profileFeed = generateProfileHTML();
+    document.querySelector('.news-feed').innerHTML = profileFeed;
+  })
 
 const openModal = document.getElementById('open-modal');
 const closeModal = document.getElementById('close-modal');

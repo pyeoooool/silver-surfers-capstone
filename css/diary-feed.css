@@ -1,8 +1,4 @@
 .news-feed {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   margin: 0;
   padding: 0;
 }
@@ -12,6 +8,8 @@
   /* Number of masonry columns */
   column-gap: 20px;
   /* Space between columns */
+  margin-top: 70px;
+  padding: 10px;
 }
 
 .news-feed-grid>div {

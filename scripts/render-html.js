@@ -134,3 +134,61 @@ export function generateSettingsHTML() {
 
   return settingsHTML;
 }
+
+export function generateProfileHTML() {
+  let profileHTML = '';
+  profileHTML = `
+    <div class="profile-page">
+      <div class="cover-photo-container">
+        <img class="cover-photo" src="cover-photos/cover-photo-1.jpg">
+      </div>
+
+      <div class="profile-feed">
+        <div class="profile-content-container">
+          <div class="profile-picture-container">
+            <img class="profile-picture" src="profile-pictures/dionela.jpg">
+          </div>
+          <div class="profile-name">dionela</div>
+          <div class="hometown">
+            New York, United States
+          </div>
+
+          <div class="profile-bio-container">
+            <div class="profile-bio">
+              ako si dionela ikaw na ba ang aking marilag ang krimen ay sa'yo ibibintang
+            </div> 
+          </div>
+
+          <div class="stats-container">
+            <div class="stats-sub-container">
+              <div class="stats-count">
+                43
+              </div>
+              <div>
+                Posts
+              </div>
+            </div>
+            
+            <div class="stats-sub-container">
+              <div class="stats-count">
+                21
+              </div>
+              <div>
+                Photos
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="wall-button-container">
+            <button class="wall-button">
+              Profile Wall
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  return profileHTML;
+}
