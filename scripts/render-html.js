@@ -1,4 +1,5 @@
 import { diaries } from './diaries.js';
+
 export function generateDiariesHTML() {
   let diariesHTML = '';
 
@@ -80,4 +81,56 @@ export function generateDiariesHTML() {
   });
 
   return diariesHTML;
+}
+
+export function generateSettingsHTML() {
+  let settingsHTML = '';
+  document.title = `Settings - ${'Angelica Parilla'}`;
+  settingsHTML = `
+      <h1>Edit your account</h1>
+      <div class="settings-container">
+          <form>
+            <div class="form-group">
+                <label for="full-name">First Name</label>
+                <input type="text" id="full-name" placeholder="Angelica">
+            </div>
+
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" placeholder="Parilla">
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Change username">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Change your email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Birthdate Input -->
+            <div class="form-group">
+                <label for="birthday">Birthdate</label>
+                <input type="date" id="birthday" value="1964-01-19">
+            </div>
+
+            <!-- Age Input (Auto-Calculated) -->
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password">
+            </div>
+
+            <button class="save-button" type="submit">Save Changes</button>
+          </form>
+      </div>
+    `;
+
+  return settingsHTML;
 }
