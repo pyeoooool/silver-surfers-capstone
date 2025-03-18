@@ -1,8 +1,9 @@
-import { diaries } from './diaries.js';
+import { diaries } from '../data/diaries.js';
+import { user } from '../data/user-object.js';
 
 export function generateDiariesHTML() {
   let diariesHTML = '';
-
+  document.title = `Silver Surfers - Diary Feed`;
   diaries.forEach((diary) => {
     diariesHTML += `
       <div class="news-feed-grid">
@@ -84,42 +85,45 @@ export function generateDiariesHTML() {
 }
 
 export function generateSettingsHTML() {
+  document.title = `Settings - ${user.username}`;
+  const formattedDate = user.birthdate.toISOString().split("T")[0];
+
   let settingsHTML = '';
-  document.title = `Settings - ${'Angelica Parilla'}`;
+
   settingsHTML = `
       <h1>Edit your account</h1>
       <div class="settings-container">
           <form>
             <div class="form-group">
                 <label for="full-name">First Name</label>
-                <input type="text" id="full-name" placeholder="Angelica">
+                <input type="text" id="full-name" placeholder="${user.firstName}">
             </div>
 
             <div class="form-group">
                 <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" placeholder="Parilla">
+                <input type="text" id="last-name" placeholder="${user.lastName}">
             </div>
 
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Change username">
+                <input type="text" id="username" placeholder="${user.username}">
             </div>
 
             <div class="form-group">
                 <label for="email">Change your email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="email" id="email" name="email" placeholder="${user.email}" required>
             </div>
 
             <!-- Birthdate Input -->
             <div class="form-group">
                 <label for="birthday">Birthdate</label>
-                <input type="date" id="birthday" value="1964-01-19">
+                <input type="date" id="birthday" value="${formattedDate}">
             </div>
 
             <!-- Age Input (Auto-Calculated) -->
             <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" id="age">
+                <label for="age"></label>
+                <input type="number" id="age" value="${user.age}">
             </div>
 
             <div class="form-group">
@@ -137,44 +141,47 @@ export function generateSettingsHTML() {
 
 export function generateProfileHTML() {
   let profileHTML = '';
+  document.title = `Profile - ${'Angelica Parilla'}`;
   profileHTML = `
     <div class="profile-page">
       <div class="cover-photo-container">
-        <img class="cover-photo" src="cover-photos/cover-photo-1.jpg">
+        <img class="cover-photo" src="${user.cover}">
       </div>
 
       <div class="profile-feed">
         <div class="profile-content-container">
           <div class="profile-picture-container">
-            <img class="profile-picture" src="profile-pictures/dionela.jpg">
+            <img class="profile-picture" src="${user.photo}">
           </div>
-          <div class="profile-name">dionela</div>
+          <div class="profile-name">
+            ${user.firstName} ${user.lastName}
+          </div>
           <div class="hometown">
-            New York, United States
+            ${user.country}, ${user.age} years old
           </div>
 
           <div class="profile-bio-container">
             <div class="profile-bio">
-              ako si dionela ikaw na ba ang aking marilag ang krimen ay sa'yo ibibintang
+              ${user.description}
             </div> 
           </div>
 
           <div class="stats-container">
             <div class="stats-sub-container">
               <div class="stats-count">
-                43
+              ${user.stats.diariesCount}
               </div>
               <div>
-                Posts
+                Diaries
               </div>
             </div>
             
             <div class="stats-sub-container">
               <div class="stats-count">
-                21
+                ${user.stats.reviewsCount}
               </div>
               <div>
-                Photos
+                Reviews
               </div>
             </div>
             

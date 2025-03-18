@@ -1,5 +1,7 @@
 import { generateDiariesHTML, generateSettingsHTML, generateProfileHTML } from './render-html.js';
 
+document.title = `Silver Surfers - Diary Feed`;
+
 document.querySelector('.news-feed')
   .innerHTML = generateDiariesHTML();
 
