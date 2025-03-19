@@ -1,5 +1,7 @@
 import { diaries } from '../data/diaries.js';
-import { user } from '../data/user-object.js';
+import { fetchUser } from '../data/user-object.js';
+
+const user = fetchUser();
 
 export function generateDiariesHTML() {
   let diariesHTML = '';
@@ -91,57 +93,57 @@ export function generateSettingsHTML() {
   let settingsHTML = '';
 
   settingsHTML = `
-      <h1>Edit your account</h1>
-      <div class="settings-container">
-          <form>
-            <div class="form-group">
-                <label for="full-name">First Name</label>
-                <input type="text" id="full-name" placeholder="${user.firstName}">
-            </div>
+    <div class="settings-page">
+        <h1>Edit your account</h1>
+        <div class="settings-container">
+            <form>
+              <div class="form-group">
+                  <label for="full-name">First Name</label>
+                  <input type="text" id="full-name" placeholder="${user.firstName}">
+              </div>
 
-            <div class="form-group">
-                <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" placeholder="${user.lastName}">
-            </div>
+              <div class="form-group">
+                  <label for="last-name">Last Name</label>
+                  <input type="text" id="last-name" placeholder="${user.lastName}">
+              </div>
 
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" placeholder="${user.username}">
-            </div>
+              <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" id="username" placeholder="${user.username}">
+              </div>
 
-            <div class="form-group">
-                <label for="email">Change your email</label>
-                <input type="email" id="email" name="email" placeholder="${user.email}" required>
-            </div>
+              <div class="form-group">
+                  <label for="email">Change your email</label>
+                  <input type="email" id="email" name="email" placeholder="${user.email}" required>
+              </div>
 
-            <!-- Birthdate Input -->
-            <div class="form-group">
-                <label for="birthday">Birthdate</label>
-                <input type="date" id="birthday" value="${formattedDate}">
-            </div>
+              <div class="form-group">
+                  <label for="birthday">Birthdate</label>
+                  <input type="date" id="birthday" value="${formattedDate}">
+              </div>
 
-            <!-- Age Input (Auto-Calculated) -->
-            <div class="form-group">
-                <label for="age"></label>
-                <input type="number" id="age" value="${user.age}">
-            </div>
+              <div class="form-group">
+                  <label for="age">Age</label>
+                  <input type="number" id="age" value="${user.age}" readonly>
+              </div>
 
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password">
-            </div>
+              <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" id="password" value="${user.password}">
+              </div>
 
-            <button class="save-button" type="submit">Save Changes</button>
-          </form>
-      </div>
-    `;
+              <button class="save-button" type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+  `;
 
   return settingsHTML;
 }
 
 export function generateProfileHTML() {
   let profileHTML = '';
-  document.title = `Profile - ${'Angelica Parilla'}`;
+  document.title = `Profile - ${user.username}`;
   profileHTML = `
     <div class="profile-page">
       <div class="cover-photo-container">

@@ -24,6 +24,7 @@ document.querySelector('.js-profile-icon')
     document.querySelector('.news-feed').innerHTML = profileFeed;
   })
 
+/*
 const openModal = document.getElementById('open-modal');
 const closeModal = document.getElementById('close-modal');
 const modalContainer = document.querySelector('.create-diary-modal-container');
@@ -42,7 +43,10 @@ window.addEventListener('click', (event) => {
     modalContainer.style.display = 'none';
   }
 });
+*/
 
+
+/*
 const addImageIcon = document.querySelector(".add-image-icon");
 const imageUpload = document.getElementById("imageUpload");
 
@@ -56,4 +60,4 @@ const videoUpload = document.getElementById("videoUpload");
 addVideoIcon.addEventListener("click", () => {
   videoUpload.click(); // Trigger the hidden file input
 })
-
+*/

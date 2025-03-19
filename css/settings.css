@@ -1,3 +1,11 @@
+.settings-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
 .settings-container {
     background: whitesmoke;
     border-radius: 8px;
